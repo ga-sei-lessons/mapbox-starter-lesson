@@ -1,0 +1,13 @@
+* {
+  color: orange;
+  /* background-color: black; */
+}
+
+#map { 
+  position: absolute; 
+  top: 35%; 
+  bottom: 0; 
+  left: 53%; 
+  width: 35%; 
+  height: 55%;
+}
