@@ -10,20 +10,14 @@ app.set('view engine', 'ejs')
 
 // middlewares
 app.use(layouts);
-// app.use(express.urlencoded({extended: false}));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'))
 
-const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-const geocodingClient = mbxGeocoding( { accessToken: process.env.MAPBOX_TOKEN });
-
-// controllers
-// app.use('/search', require('./controllers/search'))
-
-// home route
+// GET / -- show a form to search for a location
 app.get('/', (req, res) => {
   res.render('home')
 })
 
+// GET /search -- geocode user search and render page with a map
 app.get('/search', (req, res) =>{
   geocodingClient.forwardGeocode({ 
     query: `${req.query.city}, ${req.query.state}`
