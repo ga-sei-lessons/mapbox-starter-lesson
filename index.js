@@ -1,6 +1,8 @@
 // required packages
 require('dotenv').config()
 const express = require('express')
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding')
+const geocodingClient = mbxGeocoding( { accessToken: process.env.MAPBOX_TOKEN })
 const layouts = require('express-ejs-layouts')
 
 // configure app 
